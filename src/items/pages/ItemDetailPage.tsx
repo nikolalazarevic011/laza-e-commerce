@@ -1,12 +1,17 @@
-import React from "react";
-import ItemDetail from "../components/ItemDetail";
+// import React from "react";
+// import ItemDetail from "../components/ItemDetail";
 
-const ItemDetailPage: React.FC = () => {
-    return (
-        <>
-            <ItemDetail />
-        </>
-    );
-};
+// const ItemDetailPage: React.FC = () => {
 
-export default ItemDetailPage;
+//     //loader pa iz route loader data
+
+//     return (
+//         <>
+//             <ItemDetail />
+//         </>
+//     );
+// };
+
+// export default ItemDetailPage;
+
+export {};

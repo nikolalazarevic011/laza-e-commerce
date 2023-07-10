@@ -1,13 +1,6 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import {
-    Typography,
-    Card,
-    CardContent,
-    CardMedia,
-    Button,
-    CardActions,
-} from "@material-ui/core";
+import { Typography, Card, CardContent, CardMedia } from "@material-ui/core";
 import Item from "../../shared/models/Item";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -23,8 +16,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         paddingTop: "56.25%", // 16:9 aspect ratio
     },
 }));
-
-const ItemDetail: React.FC<{ item: Item }> = (props) => {
+const ItemCard: React.FC<{ item: Item }> = (props) => {
     const classes = useStyles();
 
     return (
@@ -38,25 +30,13 @@ const ItemDetail: React.FC<{ item: Item }> = (props) => {
                 <Typography variant="h5" component="h2">
                     {props.item.title}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    {props.item.description}
-                </Typography>
+
                 <Typography variant="h6" color="textPrimary">
                     Price: ${props.item.price}
                 </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    Category: {props.item.category}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    ID: {props.item.id}
-                </Typography>
             </CardContent>
-            <CardActions>
-                <Button size="small">EDIT</Button>
-                <Button size="small">DELETE</Button>
-            </CardActions>
         </Card>
     );
 };
 
-export default ItemDetail;
+export default ItemCard;

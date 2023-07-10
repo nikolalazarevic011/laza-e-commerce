@@ -6,6 +6,7 @@ import {
     Typography,
     Button,
     IconButton,
+    Container,
 } from "@material-ui/core";
 import { Link, useLocation } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -38,33 +39,46 @@ const MainHeader: React.FC = () => {
     return (
         <AppBar position="static">
             <Toolbar>
-                <Typography
-                    variant="h6"
-                    className={`${classes.title} ${
-                        location.pathname === "/items" ? classes.activeLink : ""
-                    }`}
-                    component={Link}
-                    to="/items"
-                >
-                    Browse
+                <ShoppingCartIcon
+                    fontSize="large"
+                    sx={{
+                        display: { xs: "none", md: "flex" },
+                        mr: 1,
+                    }}
+                />
+                <Typography component="h1" variant="h6" color="inherit">
+                    Laza e-commerce
                 </Typography>
-
-                <Typography
-                    variant="h6"
-                    className={classes.title}
-                    component={Link}
-                    to="/categories"
-                >
-                    Categories
-                </Typography>
-                <Typography
-                    variant="h6"
-                    className={classes.title}
-                    component={Link}
-                    to="/about"
-                >
-                    About
-                </Typography>
+                <Container>
+                    <Typography
+                        variant="h6"
+                        className={`${classes.title} ${
+                            location.pathname === "/items"
+                                ? classes.activeLink
+                                : ""
+                        }`}
+                        component={Link}
+                        to="/items"
+                    >
+                        Browse
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        className={classes.title}
+                        component={Link}
+                        to="/categories"
+                    >
+                        Categories
+                    </Typography>
+                    <Typography
+                        variant="h6"
+                        className={classes.title}
+                        component={Link}
+                        to="/about"
+                    >
+                        About
+                    </Typography>
+                </Container>
                 <div className={classes.rightSection}>
                     <Button
                         variant="contained"
@@ -79,6 +93,7 @@ const MainHeader: React.FC = () => {
                         <ShoppingCartIcon />
                     </IconButton>
                 </div>
+                {/* //add CreateItem when loggedIN */}
             </Toolbar>
         </AppBar>
     );

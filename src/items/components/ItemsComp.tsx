@@ -3,6 +3,7 @@ import { Container, Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import Item from "../../shared/models/Item";
 import ItemDetail from "./ItemDetail";
+import ItemCard from "./ItemCard";
 const ItemsComp: React.FC<{ items: Item[] }> = (props) => {
     return (
         <>
@@ -14,7 +15,8 @@ const ItemsComp: React.FC<{ items: Item[] }> = (props) => {
                                 to={item.id}
                                 style={{ textDecoration: "none" }}
                             >
-                                <ItemDetail key={item.id} />
+                                {/* <ItemDetail key={item.id} item={item} /> */}
+                                <ItemCard key={item.id} item={item} />
                             </Link>
                         </Grid>
                     ))}
