@@ -3,24 +3,31 @@ import RootLayout from "./shared/components/Root";
 import RootWithHeader from "./shared/components/RootWithHeader";
 import ItemsPage from "./items/pages/ItemsPage";
 import HomePage from "./shared/pages/HomePage";
-// import ItemDetailPage from "./items/pages/ItemDetailPage"; //ceka loader
+import ItemDetailPage, {
+    loader as itemDetailLoader,
+} from "./items/pages/ItemDetailPage"; //ceka loader
 import UnderConstructionPage from "./shared/components/UnderConstructionPage";
+import CreateItem from "./items/components/CreateItem";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <RootLayout />,
+        element: <RootLayout />, //later if logged in add header if not no header for home page?
         children: [
             {
                 index: true,
                 element: <HomePage />, // /home
             },
             {
-                path: "items", ///browse
+                path: "items", // /browse
                 element: <RootWithHeader />,
                 children: [
                     { index: true, element: <ItemsPage /> },
-                    // { path: ":itemId", element: <ItemDetailPage /> },
+                    {
+                        path: ":itemId",
+                        loader: itemDetailLoader,
+                        element: <ItemDetailPage />,
+                    },
                 ],
             },
             {
@@ -30,6 +37,10 @@ const router = createBrowserRouter([
             {
                 path: "about",
                 element: <UnderConstructionPage />,
+            },
+            {
+                path: "createitem",
+                element: <CreateItem />,
             },
         ],
     },

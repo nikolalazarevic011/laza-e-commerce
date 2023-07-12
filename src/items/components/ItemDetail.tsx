@@ -7,6 +7,7 @@ import {
     CardMedia,
     Button,
     CardActions,
+    Container,
 } from "@material-ui/core";
 import Item from "../../shared/models/Item";
 
@@ -28,34 +29,40 @@ const ItemDetail: React.FC<{ item: Item }> = (props) => {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
-            <CardMedia
-                className={classes.media}
-                image={props.item.image}
-                title={props.item.title}
-            />
-            <CardContent>
-                <Typography variant="h5" component="h2">
-                    {props.item.title}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    {props.item.description}
-                </Typography>
-                <Typography variant="h6" color="textPrimary">
-                    Price: ${props.item.price}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    Category: {props.item.category}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                    ID: {props.item.id}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small">EDIT</Button>
-                <Button size="small">DELETE</Button>
-            </CardActions>
-        </Card>
+        <Container>
+            <Card className={classes.root}>
+                <CardMedia
+                    className={classes.media}
+                    image={props.item.image}
+                    title={props.item.title}
+                />
+                <CardContent>
+                    <Typography variant="h5" component="h2">
+                        {props.item.title}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        {props.item.description}
+                    </Typography>
+                    <Typography variant="h6" color="textPrimary">
+                        Price: ${props.item.price}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        Category: {props.item.category}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                        ID: {props.item.id}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button variant="contained" size="small">
+                        EDIT
+                    </Button>
+                    <Button variant="contained" size="small">
+                        DELETE
+                    </Button>
+                </CardActions>
+            </Card>
+        </Container>
     );
 };
 

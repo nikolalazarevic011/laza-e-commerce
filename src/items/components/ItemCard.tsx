@@ -1,6 +1,14 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
-import { Typography, Card, CardContent, CardMedia } from "@material-ui/core";
+import {
+    Typography,
+    Card,
+    CardContent,
+    CardMedia,
+    CardActions,
+    Button,
+    Container,
+} from "@material-ui/core";
 import Item from "../../shared/models/Item";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -34,6 +42,16 @@ const ItemCard: React.FC<{ item: Item }> = (props) => {
                 <Typography variant="h6" color="textPrimary">
                     Price: ${props.item.price}
                 </Typography>
+                <CardActions>
+                    <Button variant="contained" size="small">
+                        +
+                    </Button>
+                    {/* //! dynamic from context */}
+                    <p>{0}</p>
+                    <Button variant="contained" size="small">
+                        -
+                    </Button>
+                </CardActions>
             </CardContent>
         </Card>
     );

@@ -46,7 +46,13 @@ const MainHeader: React.FC = () => {
                         mr: 1,
                     }}
                 />
-                <Typography component="h1" variant="h6" color="inherit">
+                <Typography
+                    variant="h6"
+                    className={classes.title}
+                    color="inherit"
+                    component={Link}
+                    to="/items"
+                >
                     Laza e-commerce
                 </Typography>
                 <Container>
@@ -87,10 +93,20 @@ const MainHeader: React.FC = () => {
                         component={Link}
                         to="/admin-login"
                     >
-                        Admin Login
+                        Login
+                    </Button>
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        className={classes.adminLoginButton}
+                        component={Link}
+                        to="/createitem"
+                    >
+                        Add Item
                     </Button>
                     <IconButton color="inherit">
                         <ShoppingCartIcon />
+                        MY CART
                     </IconButton>
                 </div>
                 {/* //add CreateItem when loggedIN */}
